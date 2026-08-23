@@ -8,264 +8,215 @@
 
 <style>
 * {
-    box-sizing: border-box;
+  box-sizing: border-box;
 }
 
 body {
-    margin: 0;
-    min-height: 100vh;
-    font-family: Arial, sans-serif;
-    background:
-        radial-gradient(circle at 20% 20%, #fff 0 3px, transparent 4px),
-        linear-gradient(135deg, #ffc4d6, #ffeaf2, #ffc7da);
-    color: #ed285e;
-    text-align: center;
-    overflow-x: hidden;
+  margin: 0;
+  min-height: 100vh;
+  font-family: Arial, sans-serif;
+  background:
+    radial-gradient(circle at 10% 10%, rgba(255,255,255,.8) 0 4px, transparent 5px),
+    radial-gradient(circle at 90% 20%, rgba(255,255,255,.8) 0 4px, transparent 5px),
+    linear-gradient(135deg, #ffc4d8, #fff0f6, #ffd6e5);
+  background-size: 180px 180px, 220px 220px, cover;
+  color: #e91e63;
+  text-align: center;
+  overflow-x: hidden;
+  padding: 30px 15px;
 }
 
-/* หัวข้อ */
+.container {
+  width: min(950px, 100%);
+  margin: auto;
+}
+
 h1 {
-    margin: 35px 15px 0;
-    font-size: clamp(45px, 8vw, 90px);
-    font-weight: 900;
-    color: #e91e55;
-    text-shadow:
-        4px 4px white,
-        7px 7px rgba(180, 30, 70, 0.25);
+  margin: 10px 0 0;
+  font-size: clamp(42px, 8vw, 90px);
+  font-weight: 900;
+  color: #e91e4d;
+  text-shadow:
+    4px 4px 0 white,
+    7px 7px 0 rgba(180, 40, 80, .25);
 }
 
 .subtitle {
-    font-size: clamp(28px, 5vw, 55px);
-    font-weight: bold;
-    color: #ef3765;
-    margin-top: -5px;
+  font-size: clamp(25px, 5vw, 55px);
+  font-weight: 900;
+  color: #ff3d72;
+  text-shadow: 3px 3px white;
+  margin-bottom: 15px;
 }
 
-/* ป้าย */
 .ribbon {
-    display: inline-block;
-    margin-top: 20px;
-    padding: 15px 55px;
-    background: #f33866;
-    color: white;
-    font-size: clamp(22px, 4vw, 40px);
-    font-weight: bold;
-    border-radius: 8px;
-    box-shadow: 0 8px 15px rgba(200, 30, 80, 0.2);
+  display: inline-block;
+  background: #f83d68;
+  color: white;
+  font-size: clamp(20px, 4vw, 38px);
+  font-weight: bold;
+  padding: 15px 55px;
+  border-radius: 10px;
+  box-shadow: 0 7px 0 #d92d56;
+  margin-bottom: 25px;
 }
 
-/* เวลา */
-.time-title {
-    margin-top: 25px;
-    font-size: clamp(25px, 4vw, 40px);
-    font-weight: bold;
+.label {
+  font-size: clamp(25px, 5vw, 45px);
+  font-weight: bold;
+  color: #f13b68;
+  margin-bottom: 8px;
 }
 
-.timer {
-    width: min(850px, 90%);
-    margin: 10px auto 25px;
-    padding: 25px;
-    background: rgba(255,255,255,0.65);
-    border: 3px solid #ff7195;
-    border-radius: 30px;
-    box-shadow: inset 0 0 15px rgba(255, 100, 150, 0.12);
+.counter-box {
+  background: rgba(255,255,255,.75);
+  border: 3px solid #ff7c9d;
+  border-radius: 35px;
+  padding: 25px 15px;
+  box-shadow:
+    inset 0 0 0 4px rgba(255,255,255,.7),
+    0 10px 25px rgba(255, 70, 120, .15);
+  margin-bottom: 25px;
 }
 
-.timer span {
-    display: inline-block;
-    margin: 5px 8px;
-    font-size: clamp(18px, 3vw, 30px);
-    font-weight: bold;
-    color: #e72b60;
+.counter {
+  font-size: clamp(25px, 5vw, 48px);
+  font-weight: bold;
+  color: #e93465;
+  line-height: 1.4;
 }
 
-/* รูป */
-.photo-box {
-    width: min(760px, 88%);
-    margin: auto;
-    padding: 12px;
-    background: white;
-    border-radius: 45px;
-    border: 5px solid #ff7598;
-    box-shadow: 0 10px 30px rgba(220, 50, 100, 0.2);
+.photo-frame {
+  background: white;
+  padding: 12px;
+  border-radius: 45px;
+  border: 4px solid #ff9db5;
+  box-shadow: 0 10px 35px rgba(255, 60, 110, .25);
 }
 
-.photo-box img {
-    width: 100%;
-    display: block;
-    border-radius: 35px;
+.photo-frame img {
+  display: block;
+  width: 100%;
+  max-height: 650px;
+  object-fit: cover;
+  border-radius: 35px;
 }
 
-/* วันที่ */
 .date {
-    display: inline-block;
-    margin-top: 20px;
-    padding: 12px 30px;
-    background: #f43c6b;
-    color: white;
-    border-radius: 30px;
-    font-size: clamp(18px, 3vw, 30px);
-    font-weight: bold;
+  display: inline-block;
+  margin-top: 20px;
+  padding: 13px 30px;
+  border-radius: 35px;
+  background: #f83d68;
+  color: white;
+  font-size: clamp(18px, 3vw, 30px);
+  font-weight: bold;
+  box-shadow: 0 5px 0 #d92d56;
 }
 
-/* ข้อความ */
 .message {
-    width: min(800px, 88%);
-    margin: 25px auto 50px;
-    padding: 25px;
-    background: rgba(255,255,255,0.75);
-    border: 3px solid #ff86a4;
-    border-radius: 25px;
-    font-size: clamp(18px, 3vw, 28px);
-    line-height: 1.8;
-    color: #3b252c;
-    font-weight: bold;
+  background: rgba(255,255,255,.8);
+  border: 3px solid #ff9db5;
+  border-radius: 30px;
+  padding: 25px;
+  margin-top: 25px;
+  font-size: clamp(18px, 3vw, 28px);
+  color: #4b252d;
+  line-height: 1.8;
 }
 
-/* หัวใจลอย */
 .heart {
-    position: fixed;
-    color: #ff4f7d;
-    font-size: 30px;
-    animation: float 5s linear infinite;
-    opacity: 0.7;
-    z-index: -1;
+  position: fixed;
+  font-size: 30px;
+  animation: float 5s linear infinite;
+  opacity: .8;
+  pointer-events: none;
 }
-
-.h1 { left: 5%; top: 30%; }
-.h2 { right: 7%; top: 45%; animation-delay: 1s; }
-.h3 { left: 12%; bottom: 15%; animation-delay: 2s; }
-.h4 { right: 15%; bottom: 25%; animation-delay: 3s; }
 
 @keyframes float {
-    0% {
-        transform: translateY(30px);
-    }
-    50% {
-        transform: translateY(-30px);
-    }
-    100% {
-        transform: translateY(30px);
-    }
+  0% {
+    transform: translateY(110vh) rotate(0deg);
+  }
+
+  100% {
+    transform: translateY(-20vh) rotate(360deg);
+  }
 }
 </style>
 </head>
 
 <body>
 
-<div class="heart h1">♥</div>
-<div class="heart h2">♥</div>
-<div class="heart h3">♥</div>
-<div class="heart h4">♥</div>
+<div class="heart" style="left:5%; animation-delay:0s;">❤️</div>
+<div class="heart" style="left:20%; animation-delay:2s;">💕</div>
+<div class="heart" style="left:80%; animation-delay:1s;">💗</div>
+<div class="heart" style="left:92%; animation-delay:3s;">❤️</div>
 
-<h1>Happy Anniversary ❤️</h1>
+<div class="container">
 
-<div class="subtitle">
+  <h1>Happy Anniversary ❤️</h1>
+
+  <div class="subtitle">
     นะคะที่รัก
-</div>
+  </div>
 
-<div class="ribbon">
+  <div class="ribbon">
     ♥ เราครบกันมาแล้ว ♥
-</div>
+  </div>
 
-<div class="time-title">
+  <div class="label">
     เวลาผ่านไป
-</div>
+  </div>
 
-<div class="timer">
-    <span id="years">0 ปี</span>
-    <span id="months">0 เดือน</span>
-    <span id="days">0 วัน</span>
-    <span id="hours">0 ชั่วโมง</span>
-    <span id="minutes">0 นาที</span>
-    <span id="seconds">0 วินาที</span>
-</div>
+  <div class="counter-box">
+    <div id="counter" class="counter">
+      กำลังคำนวณเวลา...
+    </div>
+  </div>
 
-<div class="photo-box">
-    <!-- เดี๋ยวเราใส่รูปคู่ตรงนี้ -->
-    <img
-        src="https://placehold.co/900x700/ffd6e5/e92d60?text=Our+Photo+❤️"
-        alt="รูปคู่"
-    >
-</div>
+  <div class="photo-frame">
+    <img src="couple.jpg" alt="รูปของเรา">
+  </div>
 
-<div class="date">
+  <div class="date">
     ♥ ตั้งแต่วันที่ 23 เมษายน 2025 ♥
-</div>
+  </div>
 
-<div class="message">
+  <div class="message">
     ขอบคุณที่เข้ามาเป็นความสุขในทุก ๆ วันนะคะ<br>
     อยู่ด้วยกันไปนาน ๆ เลยน้าาา ❤️
+  </div>
+
 </div>
 
 <script>
+const startDate = new Date("2025-04-23T00:00:00+07:00");
 
-const startDate = new Date("2025-04-23T00:00:00");
+function updateCounter() {
+  const now = new Date();
+  let diff = now - startDate;
 
-function updateTimer() {
+  if (diff < 0) {
+    document.getElementById("counter").textContent =
+      "ยังไม่ถึงวันเริ่มต้น ❤️";
+    return;
+  }
 
-    const now = new Date();
+  const totalSeconds = Math.floor(diff / 1000);
 
-    let years = now.getFullYear() - startDate.getFullYear();
-    let months = now.getMonth() - startDate.getMonth();
-    let days = now.getDate() - startDate.getDate();
+  const days = Math.floor(totalSeconds / 86400);
+  const hours = Math.floor((totalSeconds % 86400) / 3600);
+  const minutes = Math.floor((totalSeconds % 3600) / 60);
+  const seconds = totalSeconds % 60;
 
-    if (days < 0) {
-        months--;
-
-        const previousMonth = new Date(
-            now.getFullYear(),
-            now.getMonth(),
-            0
-        );
-
-        days += previousMonth.getDate();
-    }
-
-    if (months < 0) {
-        years--;
-        months += 12;
-    }
-
-    const anniversaryDate = new Date(
-        startDate.getFullYear() + years,
-        startDate.getMonth() + months,
-        startDate.getDate()
-    );
-
-    let difference = now - anniversaryDate;
-
-    const hours = Math.floor(difference / (1000 * 60 * 60));
-    difference %= 1000 * 60 * 60;
-
-    const minutes = Math.floor(difference / (1000 * 60));
-    difference %= 1000 * 60;
-
-    const seconds = Math.floor(difference / 1000);
-
-    document.getElementById("years").textContent =
-        years + " ปี";
-
-    document.getElementById("months").textContent =
-        months + " เดือน";
-
-    document.getElementById("days").textContent =
-        days + " วัน";
-
-    document.getElementById("hours").textContent =
-        hours + " ชั่วโมง";
-
-    document.getElementById("minutes").textContent =
-        minutes + " นาที";
-
-    document.getElementById("seconds").textContent =
-        seconds + " วินาที";
+  document.getElementById("counter").textContent =
+    `${days} วัน ${String(hours).padStart(2, "0")} ชั่วโมง ` +
+    `${String(minutes).padStart(2, "0")} นาที ` +
+    `${String(seconds).padStart(2, "0")} วินาที`;
 }
 
-updateTimer();
-
-setInterval(updateTimer, 1000);
-
+updateCounter();
+setInterval(updateCounter, 1000);
 </script>
 
 </body>
