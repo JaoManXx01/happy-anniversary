@@ -6,42 +6,49 @@
 <title>Happy Anniversary ❤️</title>
 
 <style>
-    * {
-        box-sizing: border-box;
-    }
+* {
+  box-sizing: border-box;
+}
 
-    html, body {
-        margin: 0;
-        width: 100%;
-        height: 100%;
-    }
+html, body {
+  margin: 0;
+  width: 100%;
+  height: 100%;
+}
 
-    body {
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        background: linear-gradient(135deg, #ffd6e7, #fff0f6);
-        overflow: hidden;
-    }
+body {
+  background: linear-gradient(135deg, #ffd6e7, #fff0f6);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+}
 
-    img {
-        width: min(75vw, 420px);
-        height: min(75vw, 420px);
-        object-fit: contain;
-        background: white;
-        padding: 20px;
-        border-radius: 25px;
-        box-shadow: 0 10px 35px rgba(255, 70, 130, 0.25);
-    }
+.qr {
+  width: min(75vw, 500px);
+  height: min(75vw, 500px);
+  background: white;
+  padding: 20px;
+  border-radius: 25px;
+  box-shadow: 0 10px 40px rgba(255, 70, 130, 0.25);
+}
+
+.qr img {
+  width: 100%;
+  height: 100%;
+  display: block;
+}
 </style>
 </head>
 
 <body>
 
-<img
-src="https://api.qrserver.com/v1/create-qr-code/?size=500x500&data=https%3A%2F%2Fjaomanxx01.github.io%2Fhappy-anniversary%2Fsecond.html"
-alt="QR Code"
->
+<div class="qr">
+  <img
+    src="https://api.qrserver.com/v1/create-qr-code/?size=700x700&data=https%3A%2F%2Fjaomanxx01.github.io%2Fhappy-anniversary%2Fsecond.html"
+    alt="QR Code"
+  >
+</div>
 
 </body>
 </html>
